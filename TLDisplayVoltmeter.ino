@@ -1,8 +1,6 @@
 #include <Wire.h>
 
-#define MIRQ D0
-#define SCLpin D2
-#define SDApin D1
+#define MIRQ 2
 #define R1 18000 //Резистор в верхнем плече
 #define R2 4300 //Резистор в нижнем плече
 #define Vref 3300
@@ -35,7 +33,7 @@ void sendStringToDisplay(char* str, bool dotPointEnable = false)
 }
 
 void setup() {
-  Wire.begin(SDApin, SCLpin);
+  Wire.begin();
   Wire.setClock(10000);
   pinMode(LED_BUILTIN, OUTPUT);
   pinMode(MIRQ, INPUT);
