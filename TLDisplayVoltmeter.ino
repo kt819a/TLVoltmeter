@@ -34,7 +34,8 @@ void sendStringToDisplay(char* str, bool dotPointEnable = false)
 
 void setup() {
   Wire.begin();
-  Wire.setClock(10000);
+  TWBR = 0xff;
+  TWSR = 0x01;
   pinMode(LED_BUILTIN, OUTPUT);
   pinMode(MIRQ, INPUT);
   pinMode(A0, INPUT);
