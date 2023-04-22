@@ -1,9 +1,9 @@
 #include <Wire.h>
 
 #define MIRQ 2
-#define R1 18000 //Резистор в верхнем плече
-#define R2 4300 //Резистор в нижнем плече
-#define Vref 3300
+#define R1 10000 //Резистор в верхнем плече
+#define R2 4700 //Резистор в нижнем плече
+#define Vref 5000
 
 #define NO_HU
 
@@ -26,7 +26,6 @@ void sendStringToDisplay(char* str, bool dotPointEnable = false)
     Wire.write(str[2]);
     Wire.write(str[3]);
     Wire.write(str[4]);
-  // put your setup code here, to run once:
     Wire.write(str[5]);
     Wire.write(str[6]);
     Wire.write(str[7]);
@@ -43,7 +42,7 @@ void setup() {
 
 void loop() {
 
-if (millis() - timing > 2000){ // Обновление данных на дисплее
+if (millis() - timing > 1000){ // Обновление данных на дисплее
   #ifdef NO_HU
   while(!digitalRead(MIRQ));
   if (digitalRead(MIRQ))
